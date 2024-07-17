@@ -117,7 +117,5 @@ export async function GET() {
   } catch (error) {
     await client.sql`ROLLBACK`;
     return new Response(JSON.stringify({ error: error }), { status: 500 });
-  } finally {
-    await client.end(); // Ensure the connection is closed
   }
 }
